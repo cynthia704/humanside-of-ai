@@ -1,6 +1,6 @@
 /* ==========================================================================
    HumanSide of AI — Foundations Landing Page
-   Theme matched to thehumansideof.us (Poppins + Eiko, blue / cyan / orange)
+   Theme matched to thehumansideof.us (Poppins + Eiko, blue / cyan / white)
    ========================================================================== */
 
 /* Brand accent italic font (PP Eiko) — used for <em> in headings, per brand site */
@@ -28,8 +28,8 @@
   --blue-soft:    #b4dafd;   /* light blue card fill */
   --cyan:         #00b8c9;   /* darkAccent teal/cyan */
   --aqua:         #80dee4;   /* light aqua */
-  --orange:       #fa6a3a;   /* pop accent — primary CTA */
-  --orange-deep:  #e8521f;
+  --orange:       #1059e5;   /* action color — set to brand blue (was orange) to match the blue/white site */
+  --orange-deep:  #0c46b8;
 
   /* Typography */
   --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -106,9 +106,9 @@ em { font-style: italic; }
 .btn-primary {
   background: var(--orange);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(250, 106, 58, 0.32);
+  box-shadow: 0 10px 24px rgba(16, 89, 229, 0.30);
 }
-.btn-primary:hover { background: var(--orange-deep); transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 32px rgba(250, 106, 58, 0.40); }
+.btn-primary:hover { background: var(--orange-deep); transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 32px rgba(16, 89, 229, 0.40); }
 .btn-ghost {
   background: transparent;
   color: var(--blue);
@@ -134,17 +134,17 @@ em { font-style: italic; }
 .announce-dot {
   display: inline-block;
   width: 7px; height: 7px;
-  background: var(--orange);
+  background: #fff;
   border-radius: 50%;
   margin-right: 9px;
   vertical-align: middle;
-  box-shadow: 0 0 0 0 rgba(250, 106, 58, 0.6);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
   animation: pulse 2.2s infinite;
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(250, 106, 58, 0.55); }
-  70% { box-shadow: 0 0 0 8px rgba(250, 106, 58, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(250, 106, 58, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 /* ==========================================================================
@@ -697,10 +697,20 @@ em { font-style: italic; }
 .about-copy h2 em { color: var(--aqua); }
 .about-copy p { color: rgba(233, 239, 250, 0.78); font-size: 1.05rem; margin-bottom: 18px; font-weight: 300; }
 .about-copy em { color: var(--aqua); }
+.about-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: var(--radius);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.30);
+}
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  margin-top: 40px;
 }
 .stat {
   background: rgba(255, 255, 255, 0.06);
@@ -716,7 +726,7 @@ em { font-style: italic; }
   font-family: var(--font-display);
   font-size: 2.8rem;
   font-weight: 700;
-  color: var(--orange);
+  color: #fff;
   line-height: 1;
   margin-bottom: 8px;
   letter-spacing: -0.03em;
@@ -788,11 +798,11 @@ em { font-style: italic; }
   font-weight: 300;
 }
 .final-cta .btn-primary {
-  background: var(--orange);
-  color: #fff;
+  background: #fff;
+  color: var(--blue);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.20);
 }
-.final-cta .btn-primary:hover { background: #fff; color: var(--orange-deep); }
+.final-cta .btn-primary:hover { background: #0c1838; color: #fff; }
 
 /* ==========================================================================
    Footer
@@ -813,7 +823,7 @@ em { font-style: italic; }
 .footer-col h4 { color: #fff; font-size: 0.92rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px; font-family: var(--font-body); font-weight: 600; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .footer-col a, .footer-col li { font-size: 0.94rem; color: rgba(233, 239, 250, 0.7); transition: color 0.2s var(--ease); }
-.footer-col a:hover { color: var(--orange); }
+.footer-col a:hover { color: var(--aqua); }
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -824,6 +834,48 @@ em { font-style: italic; }
   font-size: 0.85rem;
   color: rgba(233, 239, 250, 0.5);
 }
+
+/* ==========================================================================
+   Imagery — hero feature image & showcase split
+   ========================================================================== */
+.hero-media {
+  max-width: var(--maxw);
+  margin: 60px auto 0;
+  padding: 0 28px;
+}
+.hero-media img {
+  width: 100%;
+  height: auto;            /* let aspect-ratio drive height (overrides the HTML height attr) */
+  display: block;
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 24 / 10;
+  object-fit: cover;
+  object-position: center;
+}
+
+.section-showcase { background: var(--cream); }
+.showcase-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.showcase-split img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+.showcase-text { padding: 48px 52px 48px 0; }
+.showcase-text h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-bottom: 16px; }
+.showcase-text p { color: var(--ink-soft); font-size: 1.05rem; font-weight: 300; }
 
 /* ==========================================================================
    Reveal animation
@@ -855,13 +907,20 @@ em { font-style: italic; }
   .includes-list { grid-template-columns: 1fr; }
   .pricing-left { border-right: none; border-bottom: 1px solid var(--line); }
   .about-grid { gap: 40px; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .showcase-split { grid-template-columns: 1fr; }
+  .showcase-split img { aspect-ratio: 24 / 11; }
+  .showcase-text { padding: 36px 32px 40px; }
+  .about-media { order: -1; }
 }
 
 @media (max-width: 760px) {
   .nav-links { display: none; }
   .section { padding: 72px 0; }
   .hero { padding: 64px 0 0; }
+  .hero-media { margin-top: 44px; }
+  .hero-media img { aspect-ratio: 16 / 11; }
   .outcomes-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; text-align: center; }
